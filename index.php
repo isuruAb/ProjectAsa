@@ -19,7 +19,7 @@
             <nav class="blue darken-4">
               <ul class="right hide-on-med-and-down">
                 <li><a href="#!">New for Aza</a></li>
-                <li><a href="#!">Login</a></li>
+                <li><a href="/ProjectAza/login.php">Login</a></li>
               </ul>
             </nav>
 
