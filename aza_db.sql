@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 22, 2016 at 10:21 PM
+-- Generation Time: Jan 22, 2016 at 11:24 PM
 -- Server version: 5.6.20
 -- PHP Version: 5.5.12
 
@@ -38,7 +38,14 @@ CREATE TABLE IF NOT EXISTS `users` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `email` (`email`),
   UNIQUE KEY `telephone` (`telephone`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`id`, `username`, `password`, `email`, `telephone`, `organization`, `designation`, `privillages`) VALUES
+(1, 'aza_u', '1a1dc91c907325c69271ddf0c944bc72', 'email@email.com', 0, 'Faculty of Applied Sciences', 'Assistant Registrar ', 777);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
