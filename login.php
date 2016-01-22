@@ -1,3 +1,21 @@
+<?php include_once('functions.php');
+login_true();
+$errors="";
+
+if(isset($_POST['submit']))
+{
+    if($_POST['username']!=""&&$_POST['password']!="")
+    {
+        $errors=login_user($_POST['username'],$_POST['password']);
+        
+    }
+    else{
+        $errors="Enter username and password correctly";
+    }
+}
+
+ 
+ ?>
 <html>
     <head>
       <!--Import Google Icon Font-->
@@ -16,20 +34,26 @@
     
         <div class="container">
              <div class="row">
-            <form class="col s12">
+            <form class="col s12" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
               <div class="row">
-                <div class="input-field col s6">
+                <div class="input-field col s12">
                   <i class="material-icons prefix">account_circle</i>
-                  <input id="icon_prefix" type="text" class="validate">
+                  <input id="icon_prefix" type="text" name="username" class="validate">
                   <label for="icon_prefix">First Name</label>
                 </div>
-                <div class="input-field col s6">
+                <div class="input-field col s12">
                   <i class="material-icons prefix">phone</i>
-                  <input id="icon_lock_outline" type="tel" class="validate">
+                  <input id="icon_lock_outline" type="password" name="password" class="validate">
                   <label for="icon_lock_outline">Telephone</label>
+                </div>
+                <div class="input-field col s12">
+                    <input type="submit" value="submit" name="submit" />
                 </div>
               </div>
             </form>
+            <!--Display errors-->
+            <?php echo $errors; ?>
+            <!--Display errors-->
           </div>
         </div>
     </body>

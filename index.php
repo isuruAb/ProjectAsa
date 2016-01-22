@@ -1,3 +1,7 @@
+<?php
+include_once('functions.php');
+login_true();
+?>
 <html>
     <head>
       <!--Import Google Icon Font-->
