@@ -11,11 +11,14 @@ function login_user($login_user,$login_pass)
         // output data of each row
         session_start();
         $_SESSION['login']='true';
+        $conn->close();
         header('Location:dashboard.php');
+        
     } else {
+        $conn->close();
         return "Enter valid username and password";
     }
-    $conn->close();
+    
 }
 function login_true()
 {
@@ -42,7 +45,29 @@ function login_fales()
 
 
 }
-function register_user()
+function register_user($name,$u_name,$u_pass,$email,$tel,$org,$desi,$activated)
 {
+    include_once('database.php');
+    $sql = "INSERT INTO users (name,username,password,email,telephone,organization,designation,activated)
+    VALUES ('".$name."','".$u_name."','".md5($u_pass)."','".$email."','".$tel."','".$org."','".$desi."',".$activated.")";
     
+    if ($conn->query($sql) === TRUE) {
+       $errors="You have successfully registered";
+       
+            // the message
+            $msg = "Please complete your registration for Aza.";
+            
+            // use wordwrap() if lines are longer than 70 characters
+            $msg = wordwrap($msg,70);
+            $header = 'From: info@projectaza.com>' . "\r\n";
+            // send email
+            mail("'".$email."'","Start with Aza",$msg,$header);
+    } else {
+        //$errors="Something went wrong";
+        $errors="Error: " . $sql . "<br>" . $conn->error;
+       
+    }
+    
+    $conn->close();
+    return $errors;
 }

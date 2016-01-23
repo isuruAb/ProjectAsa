@@ -1,3 +1,24 @@
+<?php include_once('functions.php');
+login_true();
+$errors="";
+if(isset($_POST['submit']))
+{
+    if($_POST['name']!=""&&$_POST['username']!=""&&$_POST['password']!=""&&$_POST['con_password']!=""&& $_POST['email']!=""&&$_POST['tel']!=""&&$_POST['org']!=""&&$_POST['desig']!="")
+    {
+        if($_POST['password']!=$_POST['con_password'])
+        {
+            $errors="Password does not match ";
+        }
+        else{
+            $errors=register_user($_POST['name'],$_POST['username'],$_POST['password'],$_POST['email'],$_POST['tel'],$_POST['org'],$_POST['desig'],$_POST['activated']);
+        }
+        
+    }
+    else{
+        $errors="Enter username and password correctly";
+    }
+}
+?>
 <html>
     <head>
       <!--Import Google Icon Font-->
@@ -25,7 +46,7 @@
                   <label for="icon_prefix">username</label>
                   <input id="icon_lock_outline" type="password" name="password" class="validate">
                   <label for="icon_lock_outline">password</label>
-                  <input id="icon_lock_outline" type="password" name="password" class="validate">
+                  <input id="icon_lock_outline" type="password" name="con_password" class="validate">
                   <label for="icon_lock_outline">Confirm password</label>
                   <input id="icon_prefix" type="email" name="email" class="validate">
                   <label for="icon_prefix">email</label>
