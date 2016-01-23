@@ -39,12 +39,12 @@ if(isset($_POST['submit']))
                 <div class="input-field col s12">
                   <i class="material-icons prefix">account_circle</i>
                   <input id="icon_prefix" type="text" name="username" class="validate">
-                  <label for="icon_prefix">First Name</label>
+                  <label for="icon_prefix">UserName</label>
                 </div>
                 <div class="input-field col s12">
                   <i class="material-icons prefix">phone</i>
                   <input id="icon_lock_outline" type="password" name="password" class="validate">
-                  <label for="icon_lock_outline">Telephone</label>
+                  <label for="icon_lock_outline">Password</label>
                 </div>
                 <div class="input-field col s12">
                     <input type="submit" value="submit" name="submit" />

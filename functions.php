@@ -20,8 +20,29 @@ function login_user($login_user,$login_pass)
 function login_true()
 {
     session_start();
-    if($_SESSION['login']=="true")
+    if(isset($_SESSION['login']))
     {
-        header('Location:dashboard.php');
+        if($_SESSION['login']=="true")
+        {
+            header('Location:dashboard.php');
+        }
     }
+
+
+}
+function login_fales()
+{
+    session_start();
+    if(!isset($_SESSION['login']))
+    {
+
+            header('Location:login.php');
+
+    }
+
+
+}
+function register_user()
+{
+    
 }
