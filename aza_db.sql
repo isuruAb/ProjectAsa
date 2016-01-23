@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 22, 2016 at 11:24 PM
+-- Generation Time: Jan 23, 2016 at 01:00 AM
 -- Server version: 5.6.20
 -- PHP Version: 5.5.12
 
@@ -28,6 +28,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE IF NOT EXISTS `users` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) NOT NULL,
   `username` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
@@ -35,6 +36,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `organization` varchar(255) NOT NULL,
   `designation` varchar(255) NOT NULL,
   `privillages` int(3) NOT NULL,
+  `activated` int(1) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `email` (`email`),
   UNIQUE KEY `telephone` (`telephone`)
@@ -44,8 +46,8 @@ CREATE TABLE IF NOT EXISTS `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `username`, `password`, `email`, `telephone`, `organization`, `designation`, `privillages`) VALUES
-(1, 'aza_u', '1a1dc91c907325c69271ddf0c944bc72', 'email@email.com', 0, 'Faculty of Applied Sciences', 'Assistant Registrar ', 777);
+INSERT INTO `users` (`id`, `name`, `username`, `password`, `email`, `telephone`, `organization`, `designation`, `privillages`, `activated`) VALUES
+(1, 'asa', 'aza_u', '1a1dc91c907325c69271ddf0c944bc72', 'email@email.com', 0, 'Faculty of Applied Sciences', 'Assistant Registrar ', 777, 0);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
