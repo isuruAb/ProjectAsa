@@ -15,7 +15,7 @@ if(isset($_POST['submit']))
         
     }
     else{
-        $errors="Enter username and password correctly";
+        $errors="Fill all fields correctly";
     }
 }
 ?>
